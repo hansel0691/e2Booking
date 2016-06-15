@@ -1,0 +1,21 @@
+﻿<div class="widgets">
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="Bookings List" ba-panel-class="with-scroll">
+                <div class="horizontal-scroll">
+                
+                   <div class="table-header" style="text-align: right; padding: 5px 10px 10px 10px;">
+                        <button type="button" class="btn btn-icon" ng-click="vm.goToBooking()">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                   </div>
+
+                    <div>
+                        <div class="responsive_table" kendo-grid k-options="vm.gridOptions" k-rebind="vm.gridOptions"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

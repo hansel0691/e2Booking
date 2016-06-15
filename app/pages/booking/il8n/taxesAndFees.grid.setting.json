@@ -1,0 +1,44 @@
+{
+    "resizable": true,
+    "columns": [
+        {
+            "field": "Type",
+            "title": "Type",
+            "hidden": false,
+            "width": 150,
+            "template": "<div class='title_column'>Type</div>{{dataItem.Type}}"
+        },{
+            "field": "Amount",
+            "title": "Amount",
+            "hidden": false,
+            "width": 150,
+            "template": "<div class='title_column'>Amount</div>{{dataItem.Amount}}"
+        },{
+            "field": "Action",
+            "title": "Action",
+            "hidden": false,
+            "filterable": false,
+            "sortable": false,
+            "width": 100,
+            "template": "<div class='title_column'>Action</div><i class='btn fa fa-lg fa-pencil-square-o' aria-hidden='true' ng-click='vm.openTaxesModal(dataItem)'></i></i><i class='btn fa fa-lg fa-trash' aria-hidden='true' ng-click='vm.removeTaxesItem(dataItem)'></i>"
+        }
+    ],
+    "dataSource": {
+        "transport": {
+            "read": null,
+            "parameterMap": null
+        },
+        "pageSize": 10,
+        "schema": {
+            "data": null,
+            "total": null,
+            "model": {
+                "id": "id",
+                "fields": {
+                    "Type": {"type": "string"},
+                    "Amount": {"type": "string"}
+                }
+            }
+        }
+    }
+}

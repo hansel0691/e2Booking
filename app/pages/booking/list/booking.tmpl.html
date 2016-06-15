@@ -1,0 +1,303 @@
+<div class="widgets">
+
+  <div class="row">
+    <div class="col-md-12">
+    	<form name="bookingForm" method="post" novalidate="">
+	    	<div style="text-align: right; margin: 10px 10px 10px 10px">
+	    		<button class="btn" ng-click="" >Submit Bind</button>
+	    		<button type="submit" class="btn btn-success" g-click="vm.saveBooking(vm.booking)" ng-disabled="bookingForm.$error">{{vm.bookingId ? "Save" : "Create"}}</button>
+                <button id="cancel" class="btn btn-danger" ng-click="vm.goToBookings()">Cancel</button>
+	    	</div>
+
+	    	<div ba-panel ba-panel-title="Policy Details"   ba-panel-class="with-scroll">
+			    <div class="row">
+				    
+				    <!-- Paper -->
+	        		<div class="form-group col-md-4">
+	        			<label>Paper</label>
+					    <select class="form-control" name="paper" id="paper" placeholder="Paper" ng-model="vm.booking.Policy.Paper" ng-options="option.value as option.text for option in vm.paperOptions" required="">
+					    </select>
+					    <div ng-messages="bookingForm.paper.$error">
+	                        <div class="message-error" ng-message when="required">
+                                <span>Paper is required</span>
+                            </div>
+	                    </div>
+				    </div>
+
+				    <!-- Inception Date -->
+					<div class="form-group col-md-4">
+				 		<label for="inceptionDate">Inception Date</label>
+						<input type="datetime" class="form-control" name="inceptionDate" id="inceptionDate" placeholder="Inception Date" ng-model="vm.booking.Policy.InceptionDate" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(1[0-9][0-9]\d|[2-9]\d{3})$/" required="">
+						<div ng-messages="bookingForm.inceptionDate.$error">
+	                        <div class="message-error" ng-message when="pattern">
+	                            <span>Invalid date format. Please use "MM/DD/YYYY"</span>
+	                        </div>
+	                        <div class="message-error" ng-message when="required">
+                                <span>Inception Date is required</span>
+                            </div>
+	                    </div>
+					</div>
+
+					<!-- End Date -->
+					<div class="form-group col-md-4">
+				 		<label for=endDate">End Date</label>
+						<input type="datetime" class="form-control" name="endDate" id="endDate" placeholder="End Date" ng-model="vm.booking.Policy.EndDate" ng-pattern="/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(1[0-9][0-9]\d|[2-9]\d{3})$/" required="">
+						<div ng-messages="bookingForm.endDate.$error">
+	                        <div class="message-error" ng-message when="pattern">
+	                            <span>Invalid date format. Please use "MM/DD/YYYY"</span>
+	                        </div>
+	                        <div class="message-error" ng-message when="required">
+                                <span>End Date is required</span>
+                            </div>
+	                    </div>
+					</div>
+
+			    </div>
+
+               	<div class="row">
+
+				   <!-- Policy Number -->
+	 				<div class="form-group col-md-4">
+				 		<label for="policyNumber">Policy Number</label>
+						<input type="text" class="form-control" name="policyNumber" id="policyNumber" placeholder="Policy Number" ng-model="vm.booking.Policy.PolicyNumber" maxlength="20" required="">
+						<div ng-messages="bookingForm.policyNumber.$error">
+	                        <div class="message-error" ng-message when="required">
+                                <span>Policy Number is required</span>
+                            </div>
+	                    </div>
+					</div>
+
+					<!-- Transaction Number -->
+	 				<div class="form-group col-md-4">
+				 		<label for="transactionNumber">Transaction Number</label>
+						<input type="string" class="form-control" id="transactionNumber" placeholder="Transaction Number" ng-model="vm.booking.Policy.TransactionNumber">
+					</div>
+	 				
+			    </div>  
+	    	</div>
+
+	    	<div ba-panel ba-panel-title="Insured Details"   ba-panel-class="with-scroll">
+			    <div class="row">
+
+				    <!-- Name -->
+					<div class="form-group col-md-4 container-icon-right">
+				 		<label for="name">Name sadas</label>
+						<input type="text" class="form-control padding-right-30" id="name" placeholder="Name" ng-model="vm.booking.Insured.Name">
+						<i class="fa fa-search md-icon-input"></i>
+					</div> 
+
+					 <!-- Address 1 -->
+					<div class="form-group col-md-4">
+				 		<label for="addressLine1">Address 1</label>
+						<input type="text" class="form-control" id="addressLine1" placeholder="Address 1" ng-model="vm.booking.Insured.AddressLine1" >
+					</div> 
+
+					 <!-- Address 2 -->
+					<div class="form-group col-md-4">
+				 		<label for="addressLine2">Address 2</label>
+						<input type="text" class="form-control" id="addressLine2" placeholder="Address 2" ng-model="vm.booking.Insured.AddressLine2">
+					</div> 
+
+			    </div>
+
+              	<div class="row">
+
+				    <!-- City -->
+					<div class="form-group col-md-4">
+				 		<label for="city">City</label>
+						<input type="text" class="form-control" id="city" placeholder="City" ng-model="vm.booking.Insured.City" >
+					</div> 
+
+					<!-- State -->
+					<div class="form-group col-md-4">
+	        			<label>State</label>
+					    <select class="form-control" title="Select a State"  ng-model="vm.booking.Insured.State" ng-options="option.value as option.text for option in vm.states">
+					    </select>
+				    </div>
+
+					 <!-- Zip -->
+					<div class="form-group col-md-4">
+				 		<label for="zip">Zip</label>
+						<input type="text" class="form-control" id="zip" placeholder="Zip" ng-model="vm.booking.Insured.PostCode" maxlength="10">
+					</div> 
+
+			    </div>
+	    	</div>
+
+			<div ba-panel ba-panel-title="Broker Details"   ba-panel-class="with-scroll">
+			    <div class="row">
+
+				    <!-- Company -->
+					<div class="form-group col-md-4 container-icon-right">
+				 		<label for="company">Company</label>
+						<input type="text" class="form-control padding-right-30" id="company" placeholder="Company" ng-model="vm.booking.Broker.Company" >
+						<i class="fa fa-search md-icon-input"></i>
+					</div> 
+
+					 <!-- Broker Contact -->
+					<div class="form-group col-md-4 container-icon-right">
+				 		<label for="brokerContact">Broker Contact</label>
+						<input type="text" class="form-control padding-right-30" id="brokerContact" placeholder="Broker Contact" ng-model="vm.booking.Broker.Contact">
+						<i class="fa fa-search md-icon-input"></i>
+					</div> 
+
+			    </div>
+
+              	<div class="row">
+
+					<!-- Location -->
+					<div class="form-group col-md-8">
+				 		<label for="location">Location</label>
+						<input type="text" class="form-control" id="location" placeholder="Location" ng-model="vm.booking.Broker.Location" >
+					</div> 
+
+					<!-- City -->
+					<div class="form-group col-md-4">
+				 		<label for="city">City</label>
+						<input type="City" class="form-control" id="city" placeholder="City" ng-model="vm.booking.Broker.City">
+					</div> 
+
+			    </div>
+
+			    <div class="row">
+			    	
+			    	<!-- State -->
+					<div class="form-group col-md-4">
+	        			<label>State</label>
+					    <select class="form-control" title="Select a State"  ng-model="vm.booking.Broker.State" ng-options="option.value as option.text for option in vm.states">
+					    </select>
+				    </div>
+
+					<!-- Zip -->
+					<div class="form-group col-md-4">
+				 		<label for="zip">Zip</label>
+						<input type="Zip" class="form-control" id="zip" placeholder="Zip" ng-model="vm.booking.Broker.PostalCode">
+					</div> 
+
+			    </div>
+	    	</div>
+
+	    	<div ba-panel ba-panel-title="Underwriter"   ba-panel-class="with-scroll">
+			    <div class="row">
+
+				    <!-- Underwriter Team -->
+					<div class="form-group col-md-4">
+	        			<label>Underwriter Team</label>
+					    <select class="form-control" title="Select a Underwriter Team"  ng-model="vm.booking.Underwriter.UnderwriterTeam" ng-options="option.value as option.text for option in vm.underwriterTeamOptions">
+					    </select>
+				    </div>
+
+					 <!-- Underwriter -->
+					<div class="form-group col-md-4">
+	        			<label>Underwriter</label>
+					    <select class="form-control" title="Select a Underwriter"  ng-model="vm.booking.Underwriter.Underwriter" ng-options="option.value as option.text for option in vm.underwriterOptions">
+					    </select>
+				    </div>
+
+			    </div>
+	    	</div>
+
+	    	<div ba-panel ba-panel-title="Section"   ba-panel-class="with-scroll">
+			    
+			    <div class="row">
+					
+					<!-- Product -->
+					<div class="form-group col-md-4">
+	        			<label>Product</label>
+					    <select class="form-control" title="Select a Product"  ng-model="vm.booking.Broker.Product" ng-options="option.value as option.text for option in vm.productOptions">
+					    </select>
+				    </div>
+
+				</div>
+			    
+			    <div class="row">
+					
+					<!-- Premium -->
+					<div class="form-group col-md-4">
+				 		<label for="premium">Premium</label>
+						<input type="number" class="form-control" id="premium" placeholder="Premium" ng-model="vm.booking.Section.Premium" >
+					</div> 
+
+
+					<!-- Terrorism -->
+					<div class="form-group col-md-4">
+				 		<label for="terrorism">Terrorism</label>
+						<input type="number" class="form-control" id="terrorism" placeholder="Terrorism" ng-model="vm.booking.Section.Terrorism" >
+					</div> 
+
+					 <!-- Premium Type -->
+					<div class="form-group col-md-4">
+	        			<label>Premium Type</label>
+					    <select class="form-control" title="Select a Premium Type"  ng-model="vm.booking.Section.PremiumType" ng-options="option.value as option.text for option in vm.premiumTypeOptions">
+					    </select>
+				    </div>
+				</div>
+
+			    <div class="row">
+					
+					<h3 class="col-md-12 inner-header">Limits and Insurance</h3>
+
+					<!-- Policy Business -->
+					<div class="form-group col-md-4">
+	        			<label>Policy Business</label>
+					    <select class="form-control" title="Select a Policy Business"  ng-model="vm.booking.Section.PolicyBusiness" ng-options="option.value as option.text for option in vm.policyBusinessOptions">
+					    </select>
+				    </div>
+
+					<!-- Coverage Business -->
+					<div class="form-group col-md-4">
+	        			<label>Coverage Business</label>
+					    <select class="form-control" title="Select a Coverage Business"  ng-model="vm.booking.Section.CoverageBusiness" ng-options="option.value as option.text for option in vm.coverageBusinessOptions">
+					    </select>
+				    </div>
+
+
+					<!-- Amount -->
+					<div class="form-group col-md-4">
+				 		<label for="amount">Amount</label>
+						<input type="number" class="form-control" id="amount" placeholder="Amount" ng-model="vm.booking.Section.Amount" >
+					</div> 
+
+				</div>
+				
+			    <div class="row">
+					
+					<div class="col-md-12 inner-header">
+						<div style="float: right;">
+							<button type="button" class="btn btn-icon" ng-click="vm.openTaxesModal()">
+		                        <i class="fa fa-plus"></i>
+		                    </button>
+						</div>
+						
+						<h3 >Taxes and Fees</h3>
+					</div>	
+					
+					<div class="col-md-12">
+	                    <div class="responsive_table" kendo-grid k-options="vm.feesGridOptions" k-rebind="vm.feesGridOptions"></div>					
+					</div>
+
+				</div>
+
+			</div>
+
+	    	<div ba-panel ba-panel-title="Forms"   ba-panel-class="with-scroll">
+				
+				<div class="inner-header">
+					<button type="button" class="btn" data-toggle="modal" ng-click="vm.openFormsModal()">Get Forms</button>						
+				</div>
+			    
+			    <div class="row">
+					
+					<div class="col-md-12">
+	                    <div class="responsive_table" kendo-grid k-options="vm.formsGridOptions" k-rebind="vm.formsGridOptions"></div>					
+					</div>
+
+			    </div>
+
+	    	</div>
+
+		</form>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+      <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">Taxes and Fees</h4>
+  </div>
+  <div class="modal-body row">
+    
+    <div class="col-md-12">
+      
+      <!-- Fees Type -->
+      <div class="form-group col-md-6">
+          <label>Fee Type</label>
+          <select class="form-control" title="Select a Fee Type"  ng-model="vm.fee.Type" ng-options="option.value as option.text for option in vm.feesOptions" required>
+          </select>  
+      </div>
+
+      <!-- Value -->
+      <div class="form-group col-md-6">
+        <label for="Value">Value</label>
+        <input type="text" class="form-control" id="Value" placeholder="Value" ng-model="vm.fee.Amount" required>
+      </div> 
+  
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="vm.addFee(vm.fee)" ng-disabled="!vm.fee.Type || !vm.fee.Amount">{{vm.fee.id ? "Save" : "Add"}}</button>
+    <button type="button" class="btn btn-danger"  id="dialogCancelBtn" ng-click="vm.close()">Cancel</md-button>
+  </div>
+</div>

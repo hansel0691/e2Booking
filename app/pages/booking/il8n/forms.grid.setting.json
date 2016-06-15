@@ -1,0 +1,76 @@
+{
+    "resizable": true,
+    "scrollable": true,
+    "sortable": false,
+    "serverPaging": true,
+    "serverFiltering": false,
+    "serverSorting": false,
+    "selectable": true,
+    "filterable": {
+        "extra": false,
+        "operators": {
+            "string": {
+                "startswith": "Starts with",
+                "eq": "Is equal to",
+                "neq": "Is not equal to",
+                "contains": "Contains",
+                "endswith": "Ends with"
+            }
+        }
+    },
+    "pageable": {
+        "pageSizes": [ 10, 15, 20, 25, 50, 100 ],
+        "buttonCount": 3,
+        "pageSize": 10
+    },
+    "columns": [
+        {
+            "field": "FormName",
+            "title": "Form Name",
+            "hidden": false,
+            "width": 150,
+            "template": "<div class='title_column'>Form Name</div>{{dataItem.FormName}}"
+        },{
+            "field": "FormNumber",
+            "title": "FormNumber",
+            "hidden": false,
+            "width": 150,
+            "template": "<div class='title_column'>Form Number</div>{{dataItem.FormNumber}}"
+        },{
+            "field": "Action",
+            "title": "Action",
+            "hidden": false,
+            "filterable": false,
+            "sortable": false,
+            "width": 100,
+            "template": "<div class='title_column'>Action</div><md-button id='openVersionDialogBtn' style='z-index:1000' ng-click='vm.opentModal(dataItem.GamePlayAchievementID)' aria-label='fab button' class='md-icon-button md-button md-cyan-theme md-ink-ripple'><md-icon md-font-icon='fa fa-edit'></md-icon></md-button><md-button id='openVersionDialogBtn' style='z-index:1000' ng-click='vm.openDeleteModal($event, dataItem)' aria-label='fab button' class='md-icon-button md-button md-cyan-theme md-ink-ripple'><md-icon md-font-icon='icon-delete'></md-icon></md-button>"
+        }
+    ],
+    "dataSource": {
+        "serverPaging": true,
+        "serverFiltering": true,
+        "serverSorting": true,
+        "allowUnsort": true,
+        "filterable": true,
+        "pageable": true,
+        "sortable": true,
+        "groupable": true,
+        "transport": {
+            "read": null,
+            "parameterMap": null
+        },
+        "pageSize": 10,
+        "resizable": true,
+        "schema": {
+            "data": null,
+            "total": null,
+            "model": {
+                "id": "FormId",
+                "fields": {
+                    "FormName": {"type": "string"},
+                    "FormNumber": {"type": "string"}
+                }
+            }
+        }
+    }
+}

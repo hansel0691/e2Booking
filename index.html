@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="e2">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>E2 Booking</title>
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    
+    <link rel="stylesheet" href="styles/bootstrap.css" />
+    <link rel="stylesheet" href="styles/font-awesome.css" />
+    <link rel="stylesheet" href="styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="styles/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    
+</head>
+<body>
+    <div class="body-bg">
+    </div>
+    <main ng-if="$pageFinishedLoading" ng-class="{ 'menu-collapsed': $baSidebarService.isMenuCollapsed() }">
+
+  <ba-sidebar></ba-sidebar>
+  <page-top></page-top>
+
+  <div class="al-main">
+    <div class="al-content">
+      <content-top></content-top>
+      <div ui-view></div>
+    </div>
+  </div>
+
+</main>
+    <div id="preloader" ng-show="!$pageFinishedLoading">
+        <div>
+        </div>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.11/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.11/angular-messages.js"></script>    
+    <script src="scripts/angular-ui-router.js"></script>    
+    <script src="scripts/ui-bootstrap-tpls.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+
+    
+  
+    <script src="scripts/kendo.all.min.js"></script>
+    <script src="scripts/angular-kendo.min.js"></script>
+    
+
+    <script src="app/theme/theme.module.js" type="text/javascript"></script>    
+    <script src="app/theme/components/components.module.js" type="text/javascript"></script>
+    <script src="app/theme/theme.config.js"></script>
+    <script src="app/theme/theme.configProvider.js"></script>
+    <script src="app/theme/theme.constants.js"></script>
+    <script src="app/theme/theme.run.js"></script>
+    <script src="app/theme/theme.service.js"></script>
+    <script src="app/theme/directives/includeWithScope.js"></script>
+    <script src="app/theme/directives/scrollPosition.js"></script>
+    <script src="app/theme/directives/zoomIn.js"></script>
+    <script src="app/theme/services/baUtil.js"></script>
+    <script src="app/theme/services/preloader.js"></script>
+    <script src="app/theme/components/baPanel/baPanel.directive.js"></script>
+    <script src="app/theme/components/baPanel/baPanel.service.js"></script>
+    <script src="app/theme/components/baPanel/baPanelBlur.directive.js"></script>
+    <script src="app/theme/components/baPanel/baPanelBlurHelper.service.js"></script>
+    <script src="app/theme/components/baPanel/baPanelSelf.directive.js"></script>
+    <script src="app/theme/components/baSidebar/BaSidebarCtrl.js"></script>
+    <script src="app/theme/components/baSidebar/baSidebar.directive.js"></script>
+    <script src="app/theme/components/baSidebar/baSidebar.service.js"></script>
+    <script src="app/theme/components/baSidebar/baSidebarHelpers.directive.js"></script>
+    <script src="app/theme/components/pageTop/pageTop.directive.js"></script>
+
+
+    <!-- App -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.run.js"></script>
+    <script src="app/app.constants.js"></script>
+    <script src="app/pages/pages.module.js" type="text/javascript"></script>
+    <script src="app/pages/pages.config.js" type="text/javascript"></script>
+
+    <!-- Introduction -->
+    <script src="app/pages/introduction/introduction.module.js" type="text/javascript"></script>    
+    <script src="app/pages/introduction/introduction.config.js" type="text/javascript"></script>    
+    
+    <!-- Booking -->
+    <script src="app/pages/booking/booking.module.js" type="text/javascript"></script>
+    <script src="app/pages/booking/booking.config.js" type="text/javascript"></script>
+    <script src="app/pages/booking/booking.service.js" type="text/javascript"></script>
+
+    <script src="app/pages/booking/list/bookings.controller.js" type="text/javascript"></script>
+    <script src="app/pages/booking/list/booking.controller.js" type="text/javascript"></script>
+    <script src="app/pages/booking/list/forms.dialog.controller.js" type="text/javascript"></script>
+    <script src="app/pages/booking/list/taxes.dialog.controller.js" type="text/javascript"></script>
+    
+    
+    <!-- endinject -->
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+</html>
